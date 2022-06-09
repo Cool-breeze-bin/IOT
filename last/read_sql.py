@@ -1,11 +1,10 @@
-import datetime
 from time import sleep
 from turtle import color
 import pymysql
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 读取数据库函数
+# read_sql中的读取数据库函数
 def read(cur):
     # 数据库命令
     select = cur.execute("SELECT * FROM py_t_h")

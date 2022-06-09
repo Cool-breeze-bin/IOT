@@ -1,4 +1,3 @@
-import datetime
 from time import sleep
 from turtle import color
 import pymysql
