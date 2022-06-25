@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="test">
+    <file>End_of_Period/water.jpg</file>
+  </qresource>
+</RCC>

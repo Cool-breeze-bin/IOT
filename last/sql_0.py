@@ -64,30 +64,30 @@ def data_recive(data):
     # round函数保留得到数据的小数点后两位
     return [round(t,2), round(rh1,2)]
 
-def main():
-    serial_1 = serial.Serial('COM12',9600,timeout = 1)
-    con = pymysql.connect(
-        host='127.0.0.1',
-        port=3306,
-        user='root',
-        passwd='123456',
-        db='py_t_h',
-        charset='utf8'
-    )
-    box_id = 'W-2020-001'
-    id = 0
-    while True:
-        data = serial_1.read_all()
-        if len(data) == 10:
-            data_1 = data_recive(data)
-            insert(id,data_1[0],data_1[1],box_id,con)
-            id = id + 1
-            sleep(5)
-        if id == 100:
-            con.close()
-            serial_1.close
-            print('结束采集！')
-            break
+# def main():
+#     serial_1 = serial.Serial('COM12',9600,timeout = 1)
+#     con = pymysql.connect(
+#         host='127.0.0.1',
+#         port=3306,
+#         user='root',
+#         passwd='123456',
+#         db='py_t_h',
+#         charset='utf8'
+#     )
+#     box_id = 'W-2020-001'
+#     id = 0
+#     while True:
+#         data = serial_1.read_all()
+#         if len(data) == 10:
+#             data_1 = data_recive(data)
+#             insert(id,data_1[0],data_1[1],box_id,con)
+#             id = id + 1
+#             sleep(5)
+#         if id == 100:
+#             con.close()
+#             serial_1.close
+#             print('结束采集！')
+#             break
 
 if __name__ == '__main__':
     serial_1 = serial.Serial('COM12',9600,timeout = 1)

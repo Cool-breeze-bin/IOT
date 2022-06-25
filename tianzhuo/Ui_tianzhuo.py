@@ -65,7 +65,7 @@ class Ui_Dialog(object):
         self.setdate(data=sql_data())
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "扈天卓41905131"))
+        Dialog.setWindowTitle(_translate("Dialog", "张恒41905427"))
         self.label.setText(_translate("Dialog", "当前温度："))
         self.label_2.setText(_translate("Dialog", "当前温度："))
         self.label_3.setText(_translate("Dialog", "历史数据"))
@@ -80,9 +80,11 @@ class Ui_Dialog(object):
         self.graphicsView_2.setChart(self.chart1) # 将图表添加到QChartView中
         # 设置横坐标轴
         self.ax = QValueAxis()
+        
         self.ax.setRange(0,30)
         # 设置温度纵坐标轴
         self.ay = QValueAxis()
+        self.ay.setRange(min(data[1][-30:]), max(data[1][-30:])) 
         self.ay.setTitleText("温度")
         # 设置湿度纵坐标轴
         self.ay1 = QValueAxis()
@@ -121,6 +123,9 @@ class Ui_Dialog(object):
                 QStandardItem('%s' % str(data[1][i])),
                 QStandardItem('%s' % str(data[2][i]))
             ])
+            
+            
+
 from PyQt5.QtChart import QChartView
 
 
@@ -128,6 +133,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
+    
     ui = Ui_Dialog()
     ui.setupUi(Dialog,data=sql_data())
     Dialog.show()

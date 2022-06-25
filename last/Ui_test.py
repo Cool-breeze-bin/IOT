@@ -282,6 +282,8 @@ class Ui_Dialog(object):
             del(self.data_len[0])
 # 测试函数          
 if __name__ == "__main__":
+    
+    
     import sys
     suppress_qt_warnings()
     app = QtWidgets.QApplication(sys.argv)  # 创建QApplication对象

@@ -27,12 +27,12 @@ def publish(client):
         # msg = f"messages: {msg_count}"
         topics = input("请输入主题：")
         msg = input("请输入消息：")
-        result = client.publish(topic, msg)
+        result = client.publish(topics, msg)
         # result: [0, 1]
         status = result[0]
         if status == 0:
             # sql_0.main(topics, msg)
-            print(f"Send `{msg}` to topic `{topic}`")
+            print(f"Send `{msg}` to topic `{topics}`")
         else:
             print(f"Failed to send message to topic {topic}")
         msg_count += 1
